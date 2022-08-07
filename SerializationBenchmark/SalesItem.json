@@ -1,0 +1,63 @@
+﻿{
+  "type": "record",
+  "name": "SalesItem",
+  "namespace": "SerializationBenchmark",
+  "fields": [
+    {
+      "name": "Country",
+      "type": "string"
+    },
+    {
+      "name": "ItemType",
+      "type": "string"
+    },
+    {
+      "name": "OrderDate",
+      "type": "long"
+    },
+    {
+      "name": "OrderID",
+      "type": "int"
+    },
+    {
+      "name": "OrderPriority",
+      "type": "string"
+    },
+    {
+      "name": "Region",
+      "type": "string"
+    },
+    {
+      "name": "SalesChannel",
+      "type": "string"
+    },
+    {
+      "name": "ShipDate",
+      "type": "long"
+    },
+    {
+      "name": "TotalCost",
+      "type": "double"
+    },
+    {
+      "name": "TotalProfit",
+      "type": "double"
+    },
+    {
+      "name": "TotalRevenue",
+      "type": "double"
+    },
+    {
+      "name": "UnitCost",
+      "type": "double"
+    },
+    {
+      "name": "UnitPrice",
+      "type": "double"
+    },
+    {
+      "name": "UnitsSold",
+      "type": "int"
+    }
+  ]
+} 
