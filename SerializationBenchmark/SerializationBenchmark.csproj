@@ -18,6 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="1000 Sales Records.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="SalesItem.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
