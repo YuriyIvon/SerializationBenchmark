@@ -10,6 +10,8 @@
   <ItemGroup>
     <PackageReference Include="Apache.Avro" Version="1.11.1" />
     <PackageReference Include="BenchmarkDotNet" Version="0.13.1" />
+    <PackageReference Include="Chr.Avro.Binary" Version="9.1.1" />
+    <PackageReference Include="Chr.Avro.Json" Version="9.1.1" />
     <PackageReference Include="CsvHelper" Version="28.0.1" />
     <PackageReference Include="MongoDB.Bson" Version="2.17.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
@@ -19,6 +21,12 @@
 
   <ItemGroup>
     <None Update="1000 Sales Records.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SalesItemContainerApache.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SalesItemApache.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="SalesItem.json">

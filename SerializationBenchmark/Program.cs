@@ -19,10 +19,16 @@ if (!bsonBenchmark.Validate())
     throw new Exception("Serialization correctness check failed for BSON");
 }
 
-var avroBenchmark = new AvroBenchmark();
+var avroBenchmark = new AvroApacheBenchmark();
 if (!avroBenchmark.Validate())
 {
-    throw new Exception("Serialization correctness check failed for Avro");
+    throw new Exception("Serialization correctness check failed for Apache Avro");
+}
+
+var avroChrBenchmark = new AvroChrBenchmark();
+if (!avroChrBenchmark.Validate())
+{
+    throw new Exception("Serialization correctness check failed for Chr Avro");
 }
 
 var protobufBenchmark = new ProtobufBenchmark();

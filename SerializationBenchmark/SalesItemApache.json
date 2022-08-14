@@ -13,10 +13,7 @@
     },
     {
       "name": "OrderDate",
-      "type": {
-        "type": "long",
-        "logicalType": "timestamp-millis"
-      }
+      "type": "long"
     },
     {
       "name": "OrderID",
@@ -36,10 +33,7 @@
     },
     {
       "name": "ShipDate",
-      "type": {
-        "type": "long",
-        "logicalType": "timestamp-millis"
-      }
+      "type": "long"
     },
     {
       "name": "TotalCost",

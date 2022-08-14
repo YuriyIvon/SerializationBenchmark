@@ -5,7 +5,7 @@ using BenchmarkDotNet.Attributes;
 namespace SerializationBenchmark
 {
     [MemoryDiagnoser]
-    public class AvroBenchmark
+    public class AvroApacheBenchmark
     {
         private readonly Schema _salesItemSchema;
         private readonly Schema _salesItemContainerSchema;
@@ -18,10 +18,10 @@ namespace SerializationBenchmark
         private readonly ReflectWriter<SalesItemContainer> _salesItemContainerWriter;
         private readonly ReflectReader<SalesItemContainer> _salesItemContainerReader;
 
-        public AvroBenchmark()
+        public AvroApacheBenchmark()
         {
-            _salesItemSchema = Schema.Parse(File.ReadAllText("SalesItem.json"));
-            _salesItemContainerSchema = Schema.Parse(File.ReadAllText("SalesItemContainer.json"));
+            _salesItemSchema = Schema.Parse(File.ReadAllText("SalesItemApache.json"));
+            _salesItemContainerSchema = Schema.Parse(File.ReadAllText("SalesItemContainerApache.json"));
 
             var dataSource = new DataSource();
             _separateItemsCollection = dataSource.GetData();
@@ -41,8 +41,8 @@ namespace SerializationBenchmark
             _serializedSeparateItems = SerializeCollection(_separateItemsCollection, _salesItemWriter);
             _serializedSingleObject = Serialize(_singleObject, _salesItemContainerWriter);
 
-            Console.WriteLine($"Avro separate items serialized size: {_serializedSeparateItems.Length} bytes");
-            Console.WriteLine($"Avro single object serialized size: {_serializedSingleObject.Length} bytes");
+            Console.WriteLine($"Avro (Apache) separate items serialized size: {_serializedSeparateItems.Length} bytes");
+            Console.WriteLine($"Avro (Apache) single object serialized size: {_serializedSingleObject.Length} bytes");
         }
 
         public bool Validate()
@@ -54,25 +54,25 @@ namespace SerializationBenchmark
                 && deserializedSingleObject.Items.SequenceEqual(_singleObject.Items);
         }
 
-        [Benchmark(Description = "Avro separate items serialization")]
+        [Benchmark(Description = "Avro separate items serialization (Apache)")]
         public void BenchmarkCollectionSerialization()
         {
             _ = SerializeCollection(_separateItemsCollection, _salesItemWriter);
         }
 
-        [Benchmark(Description = "Avro single object serialization")]
+        [Benchmark(Description = "Avro single object serialization (Apache)")]
         public void BenchmarkSingleObjectSerialization()
         {
             _ = Serialize(_singleObject, _salesItemContainerWriter);
         }
 
-        [Benchmark(Description = "Avro separate items deserialization")]
+        [Benchmark(Description = "Avro separate items deserialization (Apache)")]
         public void BenchmarkCollectionDeserialization()
         {
             _ = DeserializeCollection(_serializedSeparateItems, _salesItemReader);
         }
 
-        [Benchmark(Description = "Avro single object deserialization")]
+        [Benchmark(Description = "Avro single object deserialization (Apache)")]
         public void BenchmarkSingleObjectDeserialization()
         {
             _ = Deserialize(_serializedSingleObject, _salesItemContainerReader);
