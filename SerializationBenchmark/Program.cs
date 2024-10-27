@@ -1,8 +1,8 @@
-﻿using BenchmarkDotNet.Columns;
-using BenchmarkDotNet.Configs;
+﻿using BenchmarkDotNet.Configs;
 using BenchmarkDotNet.Reports;
 using BenchmarkDotNet.Running;
 using Perfolizer.Horology;
+using Perfolizer.Metrology;
 using SerializationBenchmark;
 using System.Globalization;
 using System.Reflection;
